@@ -6,6 +6,11 @@ export default defineConfig(({ mode }) => {
   return {
     base: isGitHubPages ? '/technical-test-deezer/' : '/',
     plugins: [react()],
+    define: {
+      'process.env': {
+        VITE_API_BASE_URL: process.env.VITE_API_BASE_URL,
+      },
+    },
     server: {
       proxy: {
         '/api': {

@@ -4,16 +4,16 @@
   "version": "0.0.0",
   "type": "module",
   "scripts": {
-    "dev": "vite",
-    "build": "tsc -b && vite build",
-    "build:ghpages": "vite build --mode=github-pages",
+    "dev": "env-cmd -f .env vite",
+    "build": "env-cmd -f .env tsc -b && vite build",
+    "build:ghpages": "env-cmd -f .env vite build --mode=github-pages",
     "lint": "eslint .",
-    "preview": "vite preview",
+    "preview": "env-cmd -f .env vite preview",
     "prepare": "husky",
     "lint:fix": "eslint . --fix",
-    "test": "jest",
-    "test:watch": "jest --watchAll",
-    "test:coverage": "jest --coverage"
+    "test": "env-cmd -f .env jest",
+    "test:watch": "env-cmd -f .env jest --watchAll",
+    "test:coverage": "env-cmd -f .env jest --coverage"
   },
   "lint-staged": {
     "*.{js,jsx,ts,tsx,json,md}": [
@@ -27,6 +27,7 @@
     "@emotion/react": "^11.14.0",
     "@emotion/styled": "^11.14.0",
     "axios": "^1.7.9",
+    "env-cmd": "^10.1.0",
     "framer-motion": "^12.0.6",
     "react": "^18.3.1",
     "react-dom": "^18.3.1",

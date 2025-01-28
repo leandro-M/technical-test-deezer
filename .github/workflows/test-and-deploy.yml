@@ -31,7 +31,12 @@ jobs:
       - name: Run Linting
         run: npm run lint
 
+      - name: Create .env File
+        run: echo "VITE_API_BASE_URL=https://api.deezer-example.com" >> .env
+
       - name: Run Tests and Check Coverage
+        env:
+          VITE_API_BASE_URL: https://api.deezer-example.com
         run: npm run test:coverage
 
       - name: Ensure 90% Coverage
@@ -76,9 +81,7 @@ jobs:
         run: npm install
 
       - name: Create .env File
-        run: |
-          echo "VITE_API_BASE_URL=${{ secrets.VITE_API_BASE_URL }}" >> .env.production
-          echo "VITE_API_KEY=${{ secrets.VITE_API_KEY }}" >> .env.production
+        run: echo "VITE_API_BASE_URL=${{ secrets.VITE_API_BASE_URL }}" >> .env.production
 
       - name: Build Application
         run: npm run build:ghpages

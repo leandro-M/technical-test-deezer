@@ -5,7 +5,7 @@
     { "path": "./tsconfig.node.json" }
   ],
   "compilerOptions": {
-    "types": ["@testing-library/jest-dom", "jest"],
+    "types": ["@testing-library/jest-dom", "jest", "vite/client", "node"],
     "esModuleInterop": true,
     "allowSyntheticDefaultImports": true,
     "jsx": "react-jsx"

@@ -1,6 +1,7 @@
 import axios from 'axios';
-const baseURL = import.meta.env.VITE_API_BASE_URL;
+const baseURL = process.env?.VITE_API_BASE_URL;
 
+console.log('baseURL', baseURL);
 export const deezerApi = axios.create({
   baseURL,
   timeout: 5000,
