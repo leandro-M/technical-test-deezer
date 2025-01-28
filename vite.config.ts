@@ -2,10 +2,8 @@ import { defineConfig } from 'vite';
 import react from '@vitejs/plugin-react';
 
 export default defineConfig(() => {
-  const isGitHubActions = process.env.GITHUB_ACTIONS === 'true';
-
   return {
-    base: isGitHubActions ? '/technical-test-deezer/' : '/',
+    base: '/',
     plugins: [react()],
     server: {
       proxy: {

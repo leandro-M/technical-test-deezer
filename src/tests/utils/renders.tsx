@@ -2,6 +2,7 @@ import { ChakraProvider } from '@chakra-ui/react';
 import { render } from '@testing-library/react';
 import React from 'react';
 import { MemoryRouter } from 'react-router-dom';
+
 import { MusicProvider } from '../../shared/context/MusicContext';
 import { FavoritesProvider } from '../../shared/context/FavoritesContext';
 import { AudioProvider } from '../../shared/context/AudioContext';

@@ -1,7 +1,8 @@
 import { useContext } from 'react';
 import { render, screen } from '@testing-library/react';
-import { AudioContext, AudioProvider } from '../AudioContext';
 import userEvent from '@testing-library/user-event';
+
+import { AudioContext, AudioProvider } from '../AudioContext';
 
 describe('AudioProvider', () => {
   function TestComponent() {

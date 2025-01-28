@@ -2,6 +2,7 @@ import { screen } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
 import { MemoryRouter } from 'react-router-dom';
 import * as chakra from '@chakra-ui/react';
+
 import LayoutDefault from '../../LayoutDefault';
 import { routes } from '../../../routes/routes';
 import { renderWithChakraAndRouter } from '../../../../tests/utils/renders';

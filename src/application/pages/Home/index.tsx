@@ -1,4 +1,4 @@
-import React, { useEffect, useState, useRef } from 'react';
+import React, { useEffect, useState, useRef, useCallback } from 'react';
 import {
   Box,
   Input,
@@ -10,6 +10,7 @@ import {
   Button,
 } from '@chakra-ui/react';
 import { Search2Icon } from '@chakra-ui/icons';
+
 import { MusicList } from '../../components/MusicList';
 import { Music } from '../../../domain/entities/Music';
 import { useMusic } from '../../../shared/hooks/useMusic';
@@ -23,7 +24,7 @@ export function Home() {
 
   const audioRef = useRef<HTMLAudioElement | null>(null);
 
-  async function fetchTopMusics() {
+  const fetchTopMusics = useCallback(async () => {
     try {
       setIsLoading(true);
       setError(null);
@@ -35,11 +36,11 @@ export function Home() {
     } finally {
       setIsLoading(false);
     }
-  }
+  }, [getTopMusicsUseCase]);
 
   useEffect(() => {
     fetchTopMusics();
-  }, []);
+  }, [fetchTopMusics]);
 
   async function handleSearch() {
     const searchQuery = inputRef.current?.value;

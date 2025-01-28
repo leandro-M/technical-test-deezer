@@ -7,9 +7,10 @@ import {
   useBreakpointValue,
 } from '@chakra-ui/react';
 import { FiExternalLink } from 'react-icons/fi';
+import { BsHeartFill, BsHeart, BsPlay, BsPause } from 'react-icons/bs';
+
 import { Music } from '../../../domain/entities/Music';
 import { useFavorites } from '../../../shared/hooks/useFavorites';
-import { BsHeartFill, BsHeart, BsPlay, BsPause } from 'react-icons/bs';
 import { useAudio } from '../../../shared/hooks/useAudio';
 
 interface MusicCardProps {

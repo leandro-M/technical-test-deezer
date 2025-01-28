@@ -12,6 +12,7 @@ import {
 } from '@chakra-ui/react';
 import { NavLink } from 'react-router-dom';
 import { HamburgerIcon } from '@chakra-ui/icons';
+
 import Logo from '../../components/Logo';
 import { routes } from '../../routes/routes';
 
@@ -29,6 +30,11 @@ interface NavItemProps {
   route: Route;
   onClick?: () => void;
   isMobile?: boolean;
+}
+
+interface MobileDrawerProps {
+  isOpen: boolean;
+  onClose: () => void;
 }
 
 const navLinkStyles = (isActive: boolean) => ({
@@ -76,10 +82,7 @@ const DesktopNavigation: React.FC<BoxProps> = (props) => (
   </Box>
 );
 
-const MobileDrawer: React.FC<{ isOpen: boolean; onClose: () => void }> = ({
-  isOpen,
-  onClose,
-}) => (
+const MobileDrawer: React.FC<MobileDrawerProps> = ({ isOpen, onClose }) => (
   <Drawer isOpen={isOpen} placement="left" onClose={onClose}>
     <DrawerOverlay />
     <DrawerContent bg="gray.800" color="white">
