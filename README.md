@@ -123,6 +123,7 @@ technical-test-deezer/
 
    ```env
    VITE_API_BASE_URL="/api"
+   VITE_APP_BASE_NAME="/"
    ```
 
 4. Start the development server:
@@ -193,6 +194,7 @@ All environment-specific variables are stored in `.env` files and should follow 
 
 ```env
 VITE_API_BASE_URL="/api"
+VITE_APP_BASE_NAME="/"
 ```
 
 **Note:** Sensitive keys should be managed using GitHub Actions secrets in CI/CD workflows.

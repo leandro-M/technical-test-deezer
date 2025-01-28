@@ -4,11 +4,12 @@ import react from '@vitejs/plugin-react';
 export default defineConfig(({ mode }) => {
   const isGitHubPages = mode === 'github-pages';
   return {
-    base: isGitHubPages ? '/technical-test-deezer/' : '/',
+    base: isGitHubPages ? process.env.VITE_APP_BASE_NAME : '/',
     plugins: [react()],
     define: {
       'process.env': {
         VITE_API_BASE_URL: process.env.VITE_API_BASE_URL,
+        VITE_APP_BASE_NAME: process.env.VITE_APP_BASE_NAME || '/',
       },
     },
     server: {
