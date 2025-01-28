@@ -81,7 +81,9 @@ jobs:
         run: npm install
 
       - name: Create .env File
-        run: echo "VITE_API_BASE_URL=${{ secrets.VITE_API_BASE_URL }}" >> .env
+        run: |
+          echo "VITE_API_BASE_URL=${{ secrets.VITE_API_BASE_URL }}" >> .env
+          echo "VITE_APP_BASE_NAME=${{ secrets.VITE_APP_BASE_NAME }}" >> .env
 
       - name: Build Application
         run: npm run build:ghpages
