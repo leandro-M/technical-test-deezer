@@ -1,9 +1,10 @@
 import { defineConfig } from 'vite';
 import react from '@vitejs/plugin-react';
 
-export default defineConfig(() => {
+export default defineConfig(({ mode }) => {
+  const isGitHubPages = mode === 'github-pages';
   return {
-    base: '/',
+    base: isGitHubPages ? '/technical-test-deezer/' : '/',
     plugins: [react()],
     server: {
       proxy: {
