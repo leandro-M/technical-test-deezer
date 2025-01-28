@@ -36,7 +36,26 @@ jobs:
 
       - name: Ensure 90% Coverage
         run: |
-          grep -q "All files.*90%" coverage/lcov-report/index.html || (echo "Coverage is below 90%" && exit 1)
+          node -e "
+            const coverage = require('./coverage/coverage-final.json');
+            let totalStatements = 0;
+            let coveredStatements = 0;
+
+            for (const file in coverage) {
+              const fileCoverage = coverage[file].s;
+              totalStatements += Object.keys(fileCoverage).length;
+              coveredStatements += Object.values(fileCoverage).filter(val => val > 0).length;
+            }
+
+            const coveragePercent = (coveredStatements / totalStatements) * 100;
+
+            if (coveragePercent < 90) {
+              console.error('Coverage is below 90%: ' + coveragePercent.toFixed(2) + '%');
+              process.exit(1);
+            } else {
+              console.log('Coverage is sufficient: ' + coveragePercent.toFixed(2) + '%');
+            }
+          "
 
   deploy:
     name: Deploy Application
