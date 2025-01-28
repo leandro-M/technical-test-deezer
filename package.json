@@ -8,13 +8,14 @@
     "build": "tsc -b && vite build",
     "lint": "eslint .",
     "preview": "vite preview",
+    "prepare": "husky",
+    "lint:fix": "eslint . --fix",
     "test": "jest",
     "test:watch": "jest --watchAll",
-    "prepare": "husky",
-    "lint:fix": "eslint . --fix"
+    "test:coverage": "jest --coverage"
   },
   "lint-staged": {
-    "*.{ts,tsx}": [
+    "*.{js,jsx,ts,tsx,json,md}": [
       "eslint --fix",
       "prettier --write"
     ]
